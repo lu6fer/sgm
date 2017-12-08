@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "env",
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css" // `style: true` for less
+      }
+    ],
+    "react-hot-loader/babel",
+    "transform-runtime"
+  ]
+}
