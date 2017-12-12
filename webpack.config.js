@@ -22,22 +22,7 @@ var config = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                /*use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            minimize: true,
-                            sourceMap: true,
-                            module: false,
-                            importLoaders: 1
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader'
-                    }
-                ]*/
+                test: /\.(css|less)$/,
                 use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -47,11 +32,14 @@ var config = {
                                 minimize: true,
                                 sourceMap: true,
                                 module: false,
-                                importLoaders: 1
+                                importLoaders: 2
                             }
                         },
                         {
                             loader: 'postcss-loader'
+                        },
+                        {
+                            loader: 'less-loader'
                         }
                     ]
                 }))
@@ -61,6 +49,17 @@ var config = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
+                }
+            },
+            {
+                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        publicPath: '/assets/',
+                        context: __dirname + '/client',
+                        name: '[path][name].[ext]'
+                    }
                 }
             }
         ]

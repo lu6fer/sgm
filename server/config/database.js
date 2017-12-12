@@ -3,6 +3,9 @@ var mongoose = require('mongoose');
 // Build the connection string
 var connectionString = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME;
 
+// mongoose promise are deprecated
+mongoose.Promise = global.Promise;
+
 // Create the database connection
 mongoose.connect(connectionString, {
     useMongoClient: true

@@ -27,7 +27,7 @@ class Navbar extends React.Component {
             >
                 <Menu mode="inline" defaultSelectedKeys={['1']}>
                     <Menu.Item key="1">
-                        <Icon type="user" />
+                        <Icon type="bcd" />
                         <span className="nav-text">nav 1</span>
                     </Menu.Item>
                     <Menu.Item key="2">

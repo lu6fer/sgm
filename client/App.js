@@ -9,6 +9,7 @@ import frFR from 'antd/lib/locale-provider/fr_FR';
 
 // Import Routes
 import routes from './routes';
+import './main.less';
 
 
 export default function App(props) {
