@@ -87,7 +87,7 @@ class LoginForm extends Component {
                                 <Link to={'/signup'}>Sign Up</Link>
                             </div>
                         </div>
-                    </form>
+                    </form>s
 
                 </div>
             </div>

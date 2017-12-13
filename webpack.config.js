@@ -23,6 +23,7 @@ var config = {
         rules: [
             {
                 test: /\.(css|less)$/,
+                exclude: /components/,
                 use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -45,6 +46,26 @@ var config = {
                 }))
             },
             {
+                test: /\.css$/,
+                use:['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: false,
+                                sourceMap: true,
+                                module: true,
+                                importLoaders: 1
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader'
+                        }
+                    ]
+                }))
+            },
+            {
                 test: /\.(js|jsx)$/, //Check for all js files
                 exclude: /node_modules/,
                 use: {
@@ -54,11 +75,10 @@ var config = {
             {
                 test: /\.(png|woff|woff2|eot|ttf|svg)$/,
                 use: {
-                    loader: 'file-loader',
+                    loader: 'url-loader',
                     options: {
-                        publicPath: '/assets/',
-                        context: __dirname + '/client',
-                        name: '[path][name].[ext]'
+                        limit: '10000',
+                        name: './fonts/[hash].[ext]'
                     }
                 }
             }
@@ -73,16 +93,15 @@ var config = {
         contentBase: __dirname + '/client',
     },
 
-    /*devServer: {
-        contentBase: __dirname + '/public/js',
-    },*/
-
     devtool: "eval-source-map", // Default development sourcemap
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new ExtractTextPlugin('app.css')
+        new ExtractTextPlugin({
+            filename: 'app.css',
+            allChunks: true
+        })
     ]
 };
 

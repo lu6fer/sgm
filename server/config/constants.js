@@ -5,7 +5,7 @@ module.exports = {
     root: rootPath,
     modelsDir: rootPath + '/models',
     viewsDir: rootPath + '/views',
-    assetsDir: rootPath + '/public',
+    assetsDir: rootPath + '/client',
     secret:'Mff6hu0GaLB7R3v1i0iwV8U26B6KNHP4',
     defaultPassword: 'Subalcatel!',
     jwt: {
