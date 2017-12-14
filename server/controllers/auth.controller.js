@@ -1,6 +1,7 @@
 import validationResult from '../utils/validationResult';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
+import i18n from 'i18n';
 import serverConfig from '../config/constants';
 import User from '../models/user';
 
@@ -25,7 +26,7 @@ export function login(req, res) {
         return res.status(401).json({
           error: true,
           message: [{
-              error: 'invalid credantials'
+              error: i18n.__('invalid credantials')
           }]
         });
       }

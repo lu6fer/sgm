@@ -1,5 +1,5 @@
 import { replace } from 'react-router-redux';
-import { LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS } from './constants';
+import { LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS } from './constants';
 import Api from '../../utils/api';
 
 export function login(credentials) {
@@ -17,7 +17,7 @@ export function login(credentials) {
             })
             .catch((err) => {
                 dispatch({
-                    type: LOGIN_FAILURE,
+                    type: LOGIN_FAILED,
                     message: err.data.message
                 });
             });

@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { fromJS } from 'immutable';
 
 export const selectUserDomain = () => (state) => state.get('user');
 
@@ -9,7 +10,7 @@ export const getToken = () => createSelector(
 
 export const getProfile = () => createSelector(
     selectUserDomain(),
-    (userState) => userState.get('profile').toJS()
+    (userState) => !!userState.get('profile') ? userState.get('profile').toJS() : userState.get('profile')
 );
 
 export const getErrors = () => createSelector(

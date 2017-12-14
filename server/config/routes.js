@@ -13,10 +13,10 @@ module.exports = function (app) {
     console.log('Initializing Routes');
 
     // Register the routes
-    app.use('/', index);
     app.use('/api', auth);
     app.use('/api', users);
     app.use('/api', tank);
     app.use('/api', bcd);
     app.use('/api', regulator);
+    app.use('*', index);
 };

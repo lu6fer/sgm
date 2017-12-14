@@ -3,8 +3,7 @@
  */
 import React from 'react';
 import { Provider } from 'react-redux';
-import {Router, hashHistory} from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { Router, browserHistory } from 'react-router';
 import { LocaleProvider } from 'antd';
 import frFR from 'antd/lib/locale-provider/fr_FR';
 
@@ -14,12 +13,11 @@ import './main.less';
 // Import Routes
 import routes from './routes';
 
-
 export default function App(props) {
   return (
     <Provider store={props.store}>
         <LocaleProvider locale={frFR}>
-            <Router history={syncHistoryWithStore(hashHistory, props.store)}>
+            <Router history={browserHistory}>
               {routes}
             </Router>
         </LocaleProvider>

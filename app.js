@@ -9,6 +9,9 @@ require('babel-register')({
 // Initialize express
 require('./server/config/express')(app);
 
+// i18n
+require('./server/config/i18n')(app);
+
 // Initialize routes
 require('./server/config/routes')(app);
 
@@ -22,6 +25,7 @@ require('./server/config/passport')(app);
 seeder();
 
 var HttpStatus = require('http-status-codes');
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 const { Header, Content, Footer } = Layout;
 
@@ -16,10 +17,8 @@ class Sgm extends React.Component {
                     <Navbar />
                     <Layout>
                         <Header className={style.header} />
-                        <Content style={{ margin: '0 16px' }}>
-                            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                                Bill is a cat.
-                            </div>
+                        <Content >
+                            {this.props.children}
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
                             Ant Design ©2016 Created by Ant UED
@@ -30,5 +29,9 @@ class Sgm extends React.Component {
         );
     }
 }
+
+Sgm.propTypes = {
+    children: PropTypes.element.isRequired
+};
 
 export default Sgm;
