@@ -36,7 +36,7 @@ export function show(req, res) {
         return res.status(404).json({
           error: true,
           message: [{
-            error: 'not an endpoint'
+            error: res.__('not an endpoint')
           }]
         });
       }
@@ -153,7 +153,7 @@ export function destroy(req, res) {
       if (!bcd) {
         return res.status(404).json({
           error: true,
-          message: 'not an endpoint'
+          message: res.__('not an endpoint')
         });
       }
       return bcd.remove();
@@ -161,7 +161,7 @@ export function destroy(req, res) {
     .then(() => {
       return res.json({
         error: false,
-        message: 'bcd deleted'
+        message: res.__('bcd deleted')
       });
     })
     .catch((err) => {

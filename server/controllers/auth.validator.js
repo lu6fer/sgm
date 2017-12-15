@@ -18,7 +18,7 @@ export function resetValidator() {
       }),
     check('password', 'password is mandatory')
       .exists(),
-    check('confirmPassword', 'password don\'t match')
+    check('confirmPassword', 'password dont match')
       .exists()
       .custom((value, { req }) => value === req.body.password)
   ];

@@ -36,7 +36,7 @@ export function show(req, res) {
         return res.status(404).json({
           error: true,
           message: [{
-            error: 'not an endpoint'
+            error: res.__('not an endpoint')
           }]
         });
       }
@@ -157,7 +157,7 @@ export function destroy(req, res) {
         return res.status(404).json({
           error: true,
           message: [{
-            error: 'not an endpoint'
+            error: res.__('not an endpoint')
           }]
         });
       }
@@ -166,7 +166,7 @@ export function destroy(req, res) {
     .then(() => {
       return res.json({
         error: false,
-        message: 'regulator deleted'
+        message: res.__('regulator deleted')
       });
     })
     .catch((err) => {

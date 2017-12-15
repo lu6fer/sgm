@@ -36,7 +36,7 @@ export function show(req, res) {
         return res.status(404).json({
           error: true,
           message: [{
-            error: 'not an endpoint'
+            error: res.__('not an endpoint')
           }]
         });
       }
@@ -126,6 +126,7 @@ export function update(req, res) {
           }
         }
       }
+
       return data.save();
     })
     .then((saved) => {
@@ -156,7 +157,7 @@ export function destroy(req, res) {
         return res.status(404).json({
           error: true,
           message: [{
-            error: 'not an endpoint'
+            error: res.__('not an endpoint')
           }]
         });
       }
@@ -165,7 +166,7 @@ export function destroy(req, res) {
     .then(() => {
       return res.json({
         error: false,
-        message: 'tank deleted'
+        message: res.__('tank deleted')
       });
     })
     .catch((err) => {

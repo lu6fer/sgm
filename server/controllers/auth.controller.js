@@ -1,7 +1,6 @@
 import validationResult from '../utils/validationResult';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
-import i18n from 'i18n';
 import serverConfig from '../config/constants';
 import User from '../models/user';
 
@@ -12,7 +11,7 @@ import User from '../models/user';
  */
 export function login(req, res) {
   // Data validation
-  const errors = validationResult(req);
+  const errors = validationResult(req, res);
   if (!errors.isEmpty()) {
     return res.status(422).json({
       error: true,
@@ -26,7 +25,7 @@ export function login(req, res) {
         return res.status(401).json({
           error: true,
           message: [{
-              error: i18n.__('invalid credantials')
+              error: res.__('invalid credantials')
           }]
         });
       }
@@ -72,7 +71,7 @@ export function resetPassword(req, res) {
       return res.status(401).json({
         error: true,
         message: [{
-          error: 'unauthorized'
+          error: res.__('unauthorized')
         }]
       });
     }
@@ -82,9 +81,9 @@ export function resetPassword(req, res) {
         message: [{
           field: 'oldPassword',
           value: '',
-          error: 'invalid credantials'
+          error: res.__('invalid credantials')
         }]
-      })
+      });
     }
   }
 
@@ -103,7 +102,7 @@ export function resetPassword(req, res) {
         return res.status(404).json({
           error: true,
           message: [{
-            error: 'not an endpoint'
+            error: res.__('not an endpoint')
           }]
         });
       }
@@ -113,7 +112,7 @@ export function resetPassword(req, res) {
     .then(() => {
       return res.json({
         error: false,
-        message: 'password updated'
+        message: res.__('password updated')
       });
     })
     .catch((err) => {
