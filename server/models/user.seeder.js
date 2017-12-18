@@ -16,7 +16,7 @@ export default function () {
             admin.password = 'admin';
             admin.membership = {
                 regulator: true,
-                jacket: true,
+                bcd: true,
                 tank: true
             };
 

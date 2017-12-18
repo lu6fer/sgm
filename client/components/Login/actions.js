@@ -1,5 +1,5 @@
-import { replace } from 'react-router-redux';
-import {LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS, SET_REDIRECT_URL} from './constants';
+// import { replace } from 'react-router-redux';
+import {LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS, SET_REDIRECT_URL, NAVIGATE_TO} from './constants';
 import Api from '../../utils/api';
 
 export function login(credentials) {
@@ -13,9 +13,9 @@ export function login(credentials) {
                     user: res.data.user,
                     token: res.data.token
                 });
-                dispatch(replace('/dashboard'));
             })
             .catch((err) => {
+                console.log(err);
                 dispatch({
                     type: LOGIN_FAILED,
                     message: err.data.message
@@ -32,5 +32,8 @@ export function setRedirectUrl(url) {
 }
 
 export function navigateTo(url) {
-
+    return {
+        type: NAVIGATE_TO,
+        url
+    };
 }

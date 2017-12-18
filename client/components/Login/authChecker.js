@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import { getToken } from './selectors';
+import { createStructuredSelector } from 'reselect';
+import { getToken, getCurrentUrl } from './selectors';
 import { setRedirectUrl } from './actions';
 
 class AuthChecker extends React.Component {
     componentDidMount() {
-        const { isLoggedIn, dispatch, currentURL } = this.props;
+        const { isLoggedIn, dispatch, location } = this.props;
 
         if (!isLoggedIn) {
             // set the current url/path for future redirection (we use a Redux action)
             // then redirect (we use a React Router method)
-            dispatch(setRedirectUrl(currentURL));
+            dispatch(setRedirectUrl(location.pathname));
             browserHistory.replace('/login');
         }
     }
@@ -30,13 +31,16 @@ class AuthChecker extends React.Component {
 // using React Router, you can use `ownProps` to find the URL. Other
 // platforms (Native) or routing libraries have similar ways to find
 // the current position in the app.
-function mapStateToProps(state, ownProps) {
-    console.log(getToken(state));
+/* function mapStateToProps(state, ownProps) {
     return {
         isLoggedIn: !!state.auth.token.toJS(),
         currentURL: ownProps.location.pathname
     };
-}
+} */
+
+const mapStateToProps = createStructuredSelector({
+   isLoggedIn: getToken()
+});
 
 // function mapStateToProps
 

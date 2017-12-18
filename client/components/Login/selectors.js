@@ -5,7 +5,7 @@ export const selectAuthDomain = () => (state) => state.get('auth');
 
 export const getToken = () => createSelector(
     selectAuthDomain(),
-    (authState) => !!authState.get('token') ? authState.get('token').toJS() : authState.get('token')
+    (authState) => authState.get('token')
 );
 
 export const getErrors = () => createSelector(

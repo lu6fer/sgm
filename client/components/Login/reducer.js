@@ -1,5 +1,5 @@
 import {fromJS, List} from 'immutable';
-import { LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS } from './constants';
+import { LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS, SET_REDIRECT_URL, NAVIGATE_TO } from './constants';
 
 const initialState = fromJS({
     isAuthenticating: false,
@@ -26,7 +26,15 @@ function LoginReducer(state = initialState, action) {
             return state
                 .set('isAuthenticating', false)
                 .set('errors', List([]))
-                .set('token', action.token);
+                .set('token', fromJS(action.token));
+        }
+        case SET_REDIRECT_URL: {
+            return state
+                .set('redirectUrl', action.url);
+        }
+        case NAVIGATE_TO: {
+            return state
+                .delete('redirectUrl');
         }
         default: {
             return state;

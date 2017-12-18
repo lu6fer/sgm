@@ -73,12 +73,22 @@ var config = {
                 }
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /.*fonts.*\.(woff|woff2|eot|ttf|svg)$/,
                 use: {
                     loader: 'url-loader',
                     options: {
                         limit: '10000',
-                        name: './fonts/[hash].[ext]'
+                        name: 'fonts/[hash].[ext]'
+                    }
+                }
+            },
+            {
+                test: /\.(png|jpg|jpeg|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: '10000',
+                        name: 'images/[hash].[ext]'
                     }
                 }
             }
