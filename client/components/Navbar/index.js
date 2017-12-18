@@ -3,7 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 const { Sider } = Layout;
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { getProfile } from '../Login/selectors';
+import { getProfile } from '../Profile/selectors';
 import style from './navbar.css';
 
 class Navbar extends React.Component {

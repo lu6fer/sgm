@@ -3,9 +3,9 @@ import { LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS } from './constants';
 
 const initialState = fromJS({
     isAuthenticating: false,
-    profile: null,
     errors: [],
-    token: null
+    token: null,
+    redirectUrl: null
 });
 
 function LoginReducer(state = initialState, action) {
@@ -26,7 +26,6 @@ function LoginReducer(state = initialState, action) {
             return state
                 .set('isAuthenticating', false)
                 .set('errors', List([]))
-                .set('profile', fromJS(action.user))
                 .set('token', action.token);
         }
         default: {

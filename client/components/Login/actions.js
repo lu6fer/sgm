@@ -1,5 +1,5 @@
 import { replace } from 'react-router-redux';
-import { LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS } from './constants';
+import {LOGIN_REQUEST, LOGIN_FAILED, LOGIN_SUCCESS, SET_REDIRECT_URL} from './constants';
 import Api from '../../utils/api';
 
 export function login(credentials) {
@@ -22,4 +22,15 @@ export function login(credentials) {
                 });
             });
     };
+}
+
+export function setRedirectUrl(url) {
+    return {
+        type: SET_REDIRECT_URL,
+        url
+    };
+}
+
+export function navigateTo(url) {
+
 }

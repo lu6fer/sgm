@@ -7,8 +7,5 @@ module.exports = function(app) {
         directory: __dirname + '/../i18n'
     });
 
-    app.use(function (req, res, next) {
-        i18n.init(req, res, next);
-        next(res);
-    });
+    app.use(i18n.init);
 };
