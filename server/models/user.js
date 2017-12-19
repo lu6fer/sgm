@@ -12,11 +12,7 @@ const userSchema = new Schema({
   firstName: { type: 'String', required: true },
   role: { type: 'String', required: true, enum: ['user', 'instructor', 'admin'], default: 'user' },
   password: { type: 'String', required: true },
-  membership: {
-    tank: { type: 'Boolean', required: true, default: false },
-    jacket: { type: 'Boolean', required: true, default: false },
-    regulator: { type: 'Boolean', required: true, default: false }
-  },
+  membership: [],
   rent: []
 }, {
   timestamps: true

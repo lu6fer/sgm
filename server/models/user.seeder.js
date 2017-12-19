@@ -14,11 +14,11 @@ export default function () {
             admin.firstName = 'admin';
             admin.role = 'admin';
             admin.password = 'admin';
-            admin.membership = {
-                regulator: true,
-                bcd: true,
-                tank: true
-            };
+            admin.membership = [
+                'regulator',
+                'bcd',
+                'tank'
+            ];
 
             User.create([admin], (createErr) => {
                 if (createErr) {
