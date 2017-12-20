@@ -28,7 +28,7 @@ class Sgm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="sgm">
                 <Layout style={{ minHeight: '100vh' }}>
                     <Navbar />
                     <Layout>

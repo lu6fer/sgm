@@ -13,6 +13,12 @@ var config = {
         './main.js',
     ],
 
+    externals: {
+        'cheerio': 'window',
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+    },
+
     output: {
         path: __dirname + '/dist', //  destination
         filename: 'app.js',
