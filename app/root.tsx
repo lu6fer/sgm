@@ -8,8 +8,14 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 
+import styles from "./styles/app.css"
+
+export function links() {
+  return [{ rel: "stylesheet", href: styles }]
+}
+
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "Subalcatel Gestion Matériel" };
 };
 
 export default function App() {
@@ -22,7 +28,14 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <div className="h-screen w-screen flex flex-col">
+          <div className="flex-grow">
+            <Outlet />
+          </div>
+          <div className="h-20">
+            sidebar
+          </div>
+        </div>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
