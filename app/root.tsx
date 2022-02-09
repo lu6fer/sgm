@@ -8,6 +8,9 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 
+import Sidebar from "./containers/Sidebar/Sidebar";
+import Card from "./containers/Card/Card";
+
 import styles from "./styles/app.css"
 
 export function links() {
@@ -27,14 +30,16 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-gray-900 text-gray-100">
         <div className="h-screen w-screen flex flex-col">
-          <div className="flex-grow">
+          <div className="flex-grow p-4">
             <Outlet />
           </div>
-          <div className="h-20">
-            sidebar
-          </div>
+          <Sidebar>
+            <Card text="Matériel" />
+            <Card text="Utilisateurs" />
+            <Card text="Maintenance" />
+          </Sidebar>
         </div>
         <ScrollRestoration />
         <Scripts />
