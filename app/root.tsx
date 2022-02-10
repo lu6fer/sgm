@@ -7,6 +7,13 @@ import {
   ScrollRestoration
 } from "remix";
 import type { MetaFunction } from "remix";
+import {
+  FaTools,
+  FaUsersCog,
+  FaTape,
+  FaCogs,
+  FaUserCircle
+} from "react-icons/fa"
 
 import Sidebar from "./containers/Sidebar/Sidebar";
 import Card from "./containers/Card/Card";
@@ -30,15 +37,17 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gray-900 text-gray-100">
+      <body className="bg-slate-900 text-gray-100">
         <div className="h-screen w-screen flex flex-col">
           <div className="flex-grow p-4">
             <Outlet />
           </div>
           <Sidebar>
-            <Card text="Matériel" />
-            <Card text="Utilisateurs" />
-            <Card text="Maintenance" />
+            <Card text="Matériel" icon={FaTools} />
+            <Card text="Utilisateurs" icon={FaUsersCog} />
+            <Card text="Maintenance" icon={FaTape} />
+            <Card text="Configuration" icon={FaCogs} />
+            <Card text="Profil" icon={FaUserCircle} />
           </Sidebar>
         </div>
         <ScrollRestoration />
