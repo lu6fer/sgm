@@ -14,9 +14,8 @@ import {
   FaCogs,
   FaUserCircle
 } from "react-icons/fa"
-
-import Sidebar from "./containers/Sidebar/Sidebar";
-import Card from "./containers/Card/Card";
+import Sidebar from "./components/Sidebar/Sidebar";
+import SidebarItem from "./components/SidebarItem/SidebarItem";
 
 import styles from "./styles/app.css"
 
@@ -30,7 +29,7 @@ export const meta: MetaFunction = () => {
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-hidden">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -43,11 +42,11 @@ export default function App() {
             <Outlet />
           </div>
           <Sidebar>
-            <Card text="Matériel" icon={FaTools} />
-            <Card text="Utilisateurs" icon={FaUsersCog} />
-            <Card text="Maintenance" icon={FaTape} />
-            <Card text="Configuration" icon={FaCogs} />
-            <Card text="Profil" icon={FaUserCircle} />
+            <SidebarItem text="Matériel" icon={FaTools} to="/items" />
+            <SidebarItem text="Utilisateurs" icon={FaUsersCog} to="/users" />
+            <SidebarItem text="Maintenance" icon={FaTape} to="/servicing" />
+            <SidebarItem text="Configuration" icon={FaCogs} to="/configuration" />
+            <SidebarItem text="Profil" icon={FaUserCircle} to="/profile" />
           </Sidebar>
         </div>
         <ScrollRestoration />
