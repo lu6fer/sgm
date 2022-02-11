@@ -6,7 +6,7 @@ export type Props = {
 
 export default function Sidebar({ children }: Props) {
     return (
-        <div className="flex flex-row  w-full items-start justify-center h-20 rounded-t-3xl bg-slate-800">
+        <div className="flex-shrink flex flex-row  w-full items-start justify-center rounded-t-3xl bg-slate-800">
             {children}
         </div>
     )

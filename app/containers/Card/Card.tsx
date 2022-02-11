@@ -7,11 +7,11 @@ export type Props = {
 
 export default function Card({ text, icon: Icon }: Props) {
     return (
-        <div className="w-full h-full border-r last:border-0 flex flex-col p-2 justify-center border-gray-100 shadow-2xl">
-            <div className="flex-grow flex items-center justify-center">
-                {Icon && <Icon className="text-gray-100 text-4xl" />}
+        <div className="w-full h-20 p-2 border-r last:border-0 flex flex-col justify-center border-gray-100 shadow-2xl group ">
+            <div className="flex-grow flex items-center justify-center ">
+                {Icon && <Icon size={32} className="text-gray-100  group-hover:text-pink-500 transition-colors duration-200" />}
             </div>
-            <div className="align-middle text-center text-xs">
+            <div className="align-middle text-center text-xs group-hover:text-pink-500">
                 {text}
             </div>
         </div >
