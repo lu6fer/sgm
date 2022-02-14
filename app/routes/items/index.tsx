@@ -9,23 +9,29 @@ export default function Index() {
       <DataTable
         columns={[
           {
-            Header: "Nom",
-            accessor: "name",
+            Header: "Numéro",
+            accessor: "number",
           },
           {
-            Header: "Description",
-            accessor: "description",
+            Header: "Marque",
+            accessor: "brand",
           },
           {
-            Header: "Prix",
-            accessor: "price",
+            Header: "Modèle",
+            accessor: "model"
+          },
+          {
+            Header: "Emprunté",
+            accessor: "tenant"
           }
         ]}
         data={[
           {
-            name: "test",
-            description: "test",
-            price: "test",
+            number: 1,
+            brand: "Aqualung",
+            model: "Calipso",
+            description: "Complet 1er étage, octo, mano",
+            tenant: false
           }
         ]}
       />

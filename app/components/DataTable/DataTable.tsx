@@ -18,12 +18,18 @@ export default function DataTable({ columns, data }: DataTableProps) {
 
   return (
     // apply the table props
-    <table {...getTableProps()}>
+    <table
+      className="flex flex-wrap flex-row"
+      {...getTableProps()}
+    >
       <thead>
         {// Loop over the header rows
           headerGroups.map(headerGroup => (
             // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              className="border-b-2 border-slate-900 "
+              {...headerGroup.getHeaderGroupProps()}
+            >
               {// Loop over the headers in each row
                 headerGroup.headers.map(column => (
                   // Apply the header cell props
