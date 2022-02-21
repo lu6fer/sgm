@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Links,
   LiveReload,
@@ -24,7 +25,12 @@ export function links() {
 }
 
 export const meta: MetaFunction = () => {
-  return { title: "Subalcatel Gestion Matériel" };
+  return {
+    title: "Subalcatel Gestion Matériel",
+    description: "Gestion Matériel",
+    "apple-mobile-web-app-capable": "true",
+    //"mobile-web-app-capable": "true",
+  };
 };
 
 export default function App() {
@@ -36,9 +42,9 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-slate-900 text-gray-100">
-        <div className="h-screen w-screen flex flex-col">
-          <div className="flex-grow p-4">
+      <body className="w-screen h-screen absolute top-0 left-0 bg-slate-900 text-gray-100">
+        <div className="h-full w-full relative flex flex-col">
+          <div className="flex-1 min-h-0 p-4">
             <Outlet />
           </div>
           <Sidebar>
